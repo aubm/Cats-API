@@ -1,0 +1,10 @@
+mongo:
+    image: mongo:3.2.3
+    volumes:
+        - /srv/docker/cats-api/mongodb/data/db:/data/db
+app:
+    image: kendo5731/cats-api:latest
+    links:
+        - mongo:mongo
+    ports:
+        - "9999:8080"
